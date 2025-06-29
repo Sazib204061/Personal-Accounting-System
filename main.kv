@@ -1,0 +1,208 @@
+#:include addinfo.kv
+
+<MainScreen>:
+
+    MDScreen:
+
+        MDNavigationLayout:
+
+            ScreenManager:
+
+                MDScreen:
+                    MDFloatLayout: #Parent 1
+                        md_bg_color: 1, 1, 1, 1
+
+                        MDBoxLayout:
+                            orientation: 'vertical'
+    
+                            MDTopAppBar:
+                                title: "Personal Accounting System"
+                                elevation: 10
+                                left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+                                
+                                
+                            
+                                
+                        
+                                       
+                            MDBottomNavigation:
+                                id: panel
+                                
+                                MDBottomNavigationItem:
+                                    name: "files1"
+                                    text: "Records"
+                                    icon: "clipboard-file"
+                                    MDLabel:
+                                        font_style: "Body1"
+                                        theme_text_color: "Primary"
+                                        text: ""
+                                        halign: "center"
+                                        
+                                MDBottomNavigationItem:
+                                    name: "files2"
+                                    text: "Accounts"
+                                    icon: "wallet"
+                                    MDLabel:
+                                        font_style: "Body1"
+                                        theme_text_color: "Primary"
+                                        text: ""
+                                        halign: "center"
+                        
+                                
+                                MDBottomNavigationItem:
+                                    name: "files3"
+                                    text: "Analysis"
+                                    icon: "finance"
+                                    MDLabel:
+                                        font_style: "Body1"
+                                        theme_text_color: "Primary"
+                                        text: ""
+                                        halign: "center"
+                                    
+                                MDBottomNavigationItem:
+                                    name: "files4"
+                                    text: "Catagories"
+                                    icon: "backburger"
+                                    MDLabel:
+                                        font_style: "Body1"
+                                        theme_text_color: "Primary"
+                                        text: ""
+                                        halign: "center"
+                                        
+                        MDFloatLayout:
+                            size_hint: .8, .2
+                            pos_hint: {"center_x": .5, "center_y": .70}
+                            canvas:
+                                Color:
+                                    rgb: app.theme_cls.primary_light
+                                RoundedRectangle:
+                                    size: self.size
+                                    pos: self.pos
+                                    radius: [20]
+                            Button:
+                                text: "AddInfo"
+                                font_name: "fonts/Poppins-Regular.ttf"
+                                size_hint: 0.7, 0.5
+                                font_size: "50sp"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                background_color: 0, 0, 0, 0
+                                on_release: app.add_info()
+                                canvas.before:
+                                    Color:
+                                        rgb: app.btn_color
+                                    RoundedRectangle:
+                                        size: self.size
+                                        pos: self.pos
+                                        radius: [20]
+                        
+                        MDFloatLayout:
+                            
+                            size_hint: .8, .2
+                            pos_hint: {"center_x": .5, "center_y": .40}
+                            canvas:
+                                Color:
+                                    rgb: app.theme_cls.primary_light
+                                RoundedRectangle:
+                                    size: self.size
+                                    pos: self.pos
+                                    radius: [20]            
+                            Button:
+                                text: "ShowInfo"
+                                font_name: "fonts/Poppins-Regular.ttf"
+                                size_hint: 0.7, 0.5
+                                font_size: "50sp"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                background_color: 0, 0, 0, 0
+                                on_release: app.show_info()
+                                canvas.before:
+                                    Color:
+                                        rgb: app.btn_color
+                                    RoundedRectangle:
+                                        size: self.size
+                                        pos: self.pos
+                                        radius: [20]
+                                
+                        MDFloatLayout:
+                            size_hint: .8, .09
+                            pos_hint: {"center_x": .5, "center_y": .19}
+                            canvas:
+                                Color:
+                                    rgb: app.theme_cls.primary_light
+                                RoundedRectangle:
+                                    size: self.size
+                                    pos: self.pos
+                                    radius: [20]
+                            Button:
+                                text: "Logout"
+                                font_name: "fonts/Poppins-Regular.ttf"
+                                size_hint: 0.4, .5
+                                font_size: "18sp"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                background_color: 0, 0, 0, 0
+                                on_press: root.manager.current = 'login'
+                                canvas.before:
+                                    Color:
+                                        rgb: app.btn_color
+                                    RoundedRectangle:
+                                        size: self.size
+                                        pos: self.pos
+                                        radius: [20]
+                    
+                                
+            MDNavigationDrawer:
+                id: nav_drawer
+                radius: (0, 16, 16, 0)
+    
+                MDNavigationDrawerMenu:
+                    
+                    AnchorLayout:
+                        anchor_x: "left"
+                        size_hint_y: None
+                        height: avatar.height
+                
+                        Image:
+                            id: avatar
+                            size_hint: None, None
+                            size: "56dp", "56dp"
+                            source: "img/p3.png"
+                    MDNavigationDrawerHeader:
+                        text: "Hi, Nadim Hossain"
+                        spacing: "4dp"
+                        padding: "12dp", 0, 0, "56dp"
+    
+                    MDNavigationDrawerLabel:
+                        text: "PAS:"
+                    MDNavigationDrawerItem:
+                        icon: "home"
+                        text: "Home"
+                    MDNavigationDrawerItem:
+                        icon: "history"
+                        text: "History"
+                    MDNavigationDrawerItem:
+                        icon: "cog"
+                        text: "Settings"
+                    MDNavigationDrawerItem:
+                        icon: "advertisements-off"
+                        text: "Remove ads"
+                        
+                    
+                    MDNavigationDrawerLabel:
+                        text: "Others:"
+                    MDNavigationDrawerItem:
+                        icon: "security"
+                        text: "Privacy"
+                    MDNavigationDrawerItem:
+                        icon: "watermark"
+                        text: "Terms & Conditions"
+                    MDNavigationDrawerItem:
+                        icon: "star-circle"
+                        text: "Rate Us"
+                    MDNavigationDrawerItem:
+                        icon: "phone"
+                        text: "Contuct Us"
+                    MDNavigationDrawerItem:
+                        icon: "information-outline"
+                        text: "About"
+                    MDNavigationDrawerItem:
+                        icon: "logout"
+                        text: "Logout"

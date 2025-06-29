@@ -1,0 +1,133 @@
+ShowScreen:
+    name:"showinfo"
+    MDFloatLayout: #Parent 1
+        md_bg_color: 1, 1, 1, 1
+        MDIconButton:
+            id: back
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .95}
+            on_press: root.manager.current = 'main'
+        MDLabel:
+            text: "Back"
+            font_size: "18sp"
+            font_name: "fonts/Poppins-Regular.ttf"
+            pos_hint: {"center_x": .55, "center_y": .949}
+        MDFloatLayout: #Parent 2
+            size_hint: .2, .06
+            pos_hint: {"center_x": 0.9, "center_y": .95}
+            MDFloatLayout:  #Parent 3
+                size_hint: .2, 1
+                pos_hint: {"center_x": 0, "center_y": .5}
+                canvas:
+                    Color:
+                        rgb: rgba(139, 202, 193, 255)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [8, 0, 0, 8]
+                MDIconButton:  #Parent 4
+                    id: color1
+                    icon: "circle"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    user_font_size: "15sp"
+                    on_release: app.change_color(self)
+            MDFloatLayout:
+                size_hint: .2, 1
+                pos_hint: {"center_x": .4, "center_y": .5}
+                canvas:
+                    Color:
+                        rgb: rgba(177,35,65,255)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                MDIconButton:
+                    id: color2
+                    icon: "circle"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    user_font_size: "15sp"
+                    on_release: app.change_color(self)
+            MDFloatLayout:
+                size_hint: .2, 1
+                pos_hint: {"center_x": .8, "center_y": .5}
+                canvas:
+                    Color:
+                        rgb: rgba(99, 102, 241, 255)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [0, 8, 8, 0]
+                MDIconButton:
+                    id: color3
+                    icon: "circle"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    user_font_size: "15sp"
+                    on_release: app.change_color(self)
+        MDLabel:
+            text: "Show information"
+            pos_hint: {"center_x": .5, "center_y": .85}
+            size_hint_x: .42
+            halign: "center"
+            font_name: "fonts/Poppins-SemiBold.ttf"
+            font_size: "25sp"
+        MDFloatLayout:
+            size_hint: .8, .3
+            pos_hint: {"center_x": .5, "center_y": .65}
+            canvas:
+                Color:
+                    rgb: app.theme_cls.primary_light
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [8]            
+            Button:
+                text: "EXPENSE"
+                font_name: "fonts/Poppins-Regular.ttf"
+                size_hint: .8, .5
+                font_size: "18sp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                background_color: 0, 0, 0, 0
+                on_release: app.show_expense()
+                canvas.before:
+                    Color:
+                        rgb: app.btn_color
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [8]
+        MDFloatLayout:
+            size_hint: .8, .3
+            pos_hint: {"center_x": .5, "center_y": .20}
+            canvas:
+                Color:
+                    rgb: app.theme_cls.primary_light
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [8]            
+            Button:
+                text: "INCOME"
+                font_name: "fonts/Poppins-Regular.ttf"
+                size_hint: .8, .5
+                font_size: "18sp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                background_color: 0, 0, 0, 0
+                on_release: app.show_income()
+                canvas.before:
+                    Color:
+                        rgb: app.btn_color
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [8]
+                    
+                
+    
+        
+                        
